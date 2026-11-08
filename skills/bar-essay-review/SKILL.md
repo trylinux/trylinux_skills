@@ -41,6 +41,7 @@ Checklist conventions:
 - One item per distinct fact or rule element the official reasoning relies on. Facts the official material bundles into one sentence count as one item.
 - When a NOTE accepts an alternative formulation of a rule, an answer using that variant satisfies the corresponding elements.
 - An adverse authority (a case the other side relies on) counts on the Rule checklist only if the answer states and distinguishes it, not merely names it.
+- A rule or fact that is partly stated (one prong of a two-part rule, or the right idea loosely put) counts as half an item.
 - Round each component to the nearest 0.05, rounding halves up.
 
 These checklists make Step 2 a count instead of an impression. Testing showed that impression-based scoring of the same answer varied by up to 25 raw points between graders; counting against a fixed checklist is what keeps it stable.
@@ -76,9 +77,11 @@ Label each Point for readability: Full (0.85 or more, which requires full Applic
 These components are this skill's heuristic, not an NCBE scale. Their purpose is to tell apart two answers that both "spot the issue". An answer that names the doctrine, states the rule, and applies the key facts must score well above one that only reaches the right result.
 
 Rules for common cases:
+- **When several caps apply to one Point,** apply only the most severe one. Caps and self-contradiction apply within a Point; an error repeated in another Point is scored again there on its own terms.
 - **Wrong conclusion on a Point with a clear answer:** Conclusion 0. Application is capped at 0.10 (so the analysis gate applies), because the reasoning went wrong somewhere, unless the analysis is sound up to a single misstep at the end (then 0.30).
 - **Doctrine never named, but its substance is used:** credit Issue only if the substance is unmistakable. Credit Rule only for what is actually stated.
 - **Doctrine misnamed, reasoning sound:** full Issue and Rule credit for the substance. NCBE tells graders to credit reasoning over labels.
+- **Right result through an invalid theory** (a doctrine that does not actually decide the issue, or a misread document): treat it as no real analysis. Application 0.10 at most, so the gate applies.
 - **Right result through a weaker but legitimate theory:** Rule and Application are scored against that theory's fit, with Application at 0.30 at most.
 - **Wrong legal standard with the right bottom line** (for example, probable cause where reasonable suspicion governs): Rule 0.10 at most.
 - **Separate Points for merits and remedy:** score them independently.
@@ -173,6 +176,7 @@ _Practice estimate, not a prediction of an actual bar score._
 
 **Estimated band:** X (range X-Y only if Step 4's range rule applies) — one-line reason
 **Band lookup:** Official/Drafted table, NN% → band X
+**Passing-line read:** one line placing the band against the passing line (see below).
 **Rubric source:** Official analysis / Official point sheet / Drafted rubric
 
 | Point (weight) | Expected | Credit | Note |
@@ -192,6 +196,11 @@ _Practice estimate, not a prediction of an actual bar score._
 ```
 
 Offer a model outline of an ideal answer only if the user asks.
+
+## Passing-line read
+Examinees want to know whether an essay would pass. On a UBE scaled to 266-270, an essay at about **band 3 is near the passing line**, **band 4 is comfortably passing**, and **band 2 or below is failing**. Band 5-6 essays bank points that offset weaker essays or MBE results. Say this in one line, for example "Band 4: comfortably passing; this is the level to hold on every essay."
+
+Basis: Seperac's 0-10 essay scale, on which 5 is exactly passing (about 13.3 of 20 UBE points per essay in a 266 jurisdiction), maps to band 3 under the conversion in `references/calibration.md`. One essay score point on that scale is worth about two MBE questions. The passing line moves a little between administrations, because written scores are scaled to each exam's MBE: February written scores usually need to be a little higher than July's to pass. In testing, the skill ran slightly low in the middle of the scale, so treat a band 3 as borderline, not failing.
 
 ## Multiple answers
 When grading several answers to the same question:

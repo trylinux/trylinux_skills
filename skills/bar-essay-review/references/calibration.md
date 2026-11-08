@@ -79,6 +79,28 @@ Band cutoffs were deliberately not tuned on the ladders: with near-zero bias on 
 - The released-state answers at the top of each ladder carry Seperac's assigned scores, which may be less exact than the examinee-reported ones.
 - No real-score data yet for weak answers on the drafted path.
 
+## Benchmark set 3: J25 Secured Transactions ladder (2026-11-08, true holdout)
+Seperac's public "J25 MEE Essay Comparison Sample": F19 MEE 2 (Secured Transactions: disposition without notice, priority of possessory security interest over judicial lien, "all personal property" description in the security agreement), with the NCBE analysis and 10 graded answers scored 10 through 1. Graded blind on the skill as of commit a83ecb1 plus checklist conventions, which had never seen this subject. Official-rubric path.
+
+| Real (0-10) | Real band | Skill raw / band |
+|---|---|---|
+| 10 | 6 | 87.4 / 6 |
+| 9 | 5.5 | 84.0 / 5 |
+| 8 | 5 | 51.0 / 3 |
+| 7 | 4 | 53.0 / 3 |
+| 6 | 3.5 | 50.0 / 3 |
+| 5 | 3 | 28.0 / 2 |
+| 4 | 2.5 | 28.0 / 2 |
+| 3 | 2 | 34.0 / 2 |
+| 2 | 1.5 | 18.0 / 1 |
+| 1 | 1 | 12.0 / 1 |
+
+Rank correlation 0.95; mean absolute band error 0.6; 9/10 within one band; bias −0.6 (middle runs about half a band low). Ranking by word count alone gives 0.73, so the skill is tracking substance, not length.
+
+**Cutoff check.** Refitting the official table on two ladders and testing on the third (leave-one-ladder-out) gave held-out mean band error 0.77 versus 0.73 for the current table. The current cutoffs were kept. The middle-of-scale low bias is instead handled in the passing-line guidance (treat band 3 as borderline, not failing).
+
+**Pooled across the three real-score ladders (30 answers):** mean band error 0.73.
+
 ## Benchmark set 0: synthetic MEE answer (2026-11-08)
 One answer written by the skill's author to July 2026 MEE Question 1 (Criminal Law and Procedure), with the official analysis supplied. Author predicted 62% / band 4; grader returned 62% / band 4. This confirms the skill is applied consistently, not that the official-rubric band map matches real graders. The official column remains unvalidated.
 

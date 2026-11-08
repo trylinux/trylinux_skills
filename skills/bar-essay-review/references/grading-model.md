@@ -31,6 +31,10 @@ Use this to explain scores to the user. It does not change the grading procedure
 - UBE weights: MBE 50%, MEE 30%, MPT 20%.
 - Some non-UBE jurisdictions weight or scale differently. For example, Smart Bar Prep reports that South Dakota does not scale its written scores to the MBE and instead sets a minimum passing score for each component.
 
+## What a score is worth
+- On Seperac's 0-10 essay scale, 5 is exactly passing (about 13.3 of the 20 UBE points one MEE can contribute in a 266 jurisdiction) and 10 is the maximum, the score most released state answers receive. Each point on that scale is worth about two MBE questions.
+- Seperac's calculators show the passing written average shifting by administration: for example, about 3.2 (July) versus 3.6 (February) on Texas's scale, and about 48 versus 52 on New York's. February examinees need slightly higher written scores because written scores are scaled to a weaker February MBE.
+
 ## What real scores track (empirical)
 Seperac's database of graded examinee answers (700+ examinees) shows that higher scores go with answers that use more of the facts in the question and more of the vocabulary of the official analysis or point sheet, and, on the MPT, that cite and quote the Library more heavily. Top MPT answers in one item averaged about 1,300 words against about 640 for failing answers. These are correlations, not grading rules, but they match what this skill's checklists count: key facts reasoned with, and controlling rules and authorities stated.
 
