@@ -16,7 +16,7 @@ Read this before grading a Multistate Performance Test answer.
 6. **Analysis:** organized to mirror the questions in the task memo, in bulleted form, ending in the conclusions the drafters expect.
 7. **NOTES:** handling of ambiguities in the call and alternative readings that deserve credit.
 
-Point sheets give **no percentage weights**. Assign weights in proportion to the analysis the point sheet devotes to each question, and say what weights you used. With no point sheet, weight by the task memo: one row per question the memo asks, in proportion to how much analysis each needs, plus a 10% row for the overall recommendation if the memo asks for one. Format compliance is not a weighted row; it is handled in the writing adjustment.
+Point sheets give **no percentage weights**. Follow the weighting rules in SKILL.md Step 2: at most 6 rows, sub-points as checklists inside rows, weights by the task memo's questions or motions in proportion to the analysis, rounded to 5%. Point sheets are much longer than any 90-minute answer. A row's Application is full when the answer makes the row's core argument with the controlling authority and key facts, even if it skips some checklist sub-points.
 
 ## Grading checklist
 
@@ -49,13 +49,13 @@ No credit for law not in the Library. If outside law contradicts the Library, th
 Point sheets sometimes describe both:
 - **Stronger:** reaches the right conclusion by engaging the specific provisions, definitions, and documents that control.
 - **Weaker but still correct:** reaches the right conclusion without walking through the controlling text.
-Score stronger as Full and weaker-but-correct as Substantial unless the point sheet says otherwise.
+Score stronger answers with full Application; weaker-but-correct answers with Application 0.30, unless the point sheet says otherwise.
 
 ### 6. Close calls with no official answer
-Some MPT questions are genuinely close (for example, which of two dates a marriage began, on mixed evidence). With no point sheet, accept either reasoned conclusion. Grade on how well the answer weighs the evidence on both sides; an objective memo that argues one side and ignores the adverse facts is capped at Substantial on that row.
+Some MPT questions are genuinely close (for example, which of two dates a marriage began, on mixed evidence). With no point sheet, accept either reasoned conclusion. Grade on how well the answer weighs the evidence on both sides; an objective memo that argues one side and ignores the adverse facts has Application capped at 0.30 on that row.
 
 ### 7. Ambiguity in the call
-If the task memo can be read two ways and the point sheet says either reading leads to the same analysis, accept either. If an examinee spots a genuine ambiguity in a statute and argues it, award at least Substantial credit even if the point sheet prefers the other reading.
+If the task memo can be read two ways and the point sheet says either reading leads to the same analysis, accept either. If an examinee spots a genuine ambiguity in a statute and argues it, score that row at 0.75 or more even if the point sheet prefers the other reading.
 
 ## Reading extracted text
 Item text extracted from a PDF may carry watermark fragments ("Do Not Copy" split into letters), page numbers, and table-of-contents dot leaders. Read around them. Never treat them as part of the File or Library.

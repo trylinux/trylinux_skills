@@ -15,6 +15,8 @@ This skill was built from NCBE's *The Bar Examiner* articles below, paraphrased.
 ## Secondary sources
 | Source | Used for | Link |
 |---|---|---|
+| Seperac automated grading reports (F19 MEE 1, F10 MPT 1) | Real-score answer ladders for calibration; observation that score tracks coverage of the analysis's facts and rules | https://www.seperac.com |
+| New York State Board of Law Examiners, sample essay answers (Feb 2024, Feb 2025, July 2025) | Above-average answers for holdout testing | https://www.nybarexam.org |
 | Smart Bar Prep, "MEE Grading & Scoring" | Jurisdiction raw-scale list, South Dakota scaling exception, Washington descriptors | https://smartbarprep.com/the-smart-guide-to-the-mee/mee-grading-scoring/ |
 | JD Advising, "MEE Grading Rubric" | Confirms the descriptors are WSBA's and have been offline since December 2019 | https://jdadvising.com/mee-grading-rubric/ |
 
