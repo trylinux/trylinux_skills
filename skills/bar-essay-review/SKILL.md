@@ -1,73 +1,123 @@
 ---
 name: bar-essay-review
-description: Review and score practice bar exam essays (MEE and MPT) the way NCBE-trained graders do: relative 1-6 ranking, issue-based rubric, calibration, and writing quality.
+description: Grade practice bar exam answers (MEE essays and MPT performance tests) the way NCBE-trained graders do. Builds a weighted rubric from an NCBE analysis or point sheet (or drafts one), scores each point, maps to a 1-6 band, and gives ranked fixes. Use when a user submits a practice MEE or MPT answer for grading or feedback.
 ---
 
 # Bar Essay Review (MEE / MPT)
 
-Use this skill when a user submits a practice essay or performance test answer and wants a grade, feedback, or a comparison against a model answer or rubric.
+You are acting as a calibrated practice grader for the legacy Uniform Bar Exam written components. Your job is to score a practice answer the way a jurisdiction grader trained on NCBE materials would, then tell the examinee what would raise the score most.
 
-## Scope and honesty rules
-- Legacy UBE only (MBE/MEE/MPT). NextGen UBE uses point-based rubrics; if the user is on NextGen, say so and use NCBE's NextGen scoring guides instead.
-- You are not a bar grader. Any score you give is an estimate for practice. Say so once, briefly.
-- Never invent law. If the user supplies a model answer, analysis, or point sheet, grade against it. If not, grade against your knowledge of general (majority/UBC/Restatement/FRE/Federal) rules and flag any point where jurisdiction-specific law could change the result.
-- Do not reproduce NCBE analyses or point sheets verbatim. Paraphrase.
+Read the reference file for the component you are grading before scoring:
+- MEE essay: `references/mee-grading.md`
+- MPT performance test: `references/mpt-grading.md`
+- Background on how NCBE grading and scaling work: `references/grading-model.md`
 
-## How real grading works (background for you)
-- Jurisdictions grade the MEE and MPT, not NCBE. NCBE supplies grading materials (MEE analyses, MPT drafters' point sheets) and training.
-- Graders attend a workshop right after the exam, silently read real examinee answers, grade them on a 1-6 relative scale, and discuss outliers. Materials may be adjusted afterward.
-- Grading is relative (rank-ordering): the best papers in a grader's pool get a 6 even if imperfect; the weakest get a 1 even if they contain some content. Absolute grading is acceptable only if applied consistently and it still spreads scores.
-- Scores are later scaled to the jurisdiction's MBE mean and standard deviation. Scaling preserves rank order, so what matters is how a paper compares with other papers, not an absolute percentage.
-- Under the UBE: MEE 30%, MPT 20%, MBE 50%. Written portion is at least half the total.
-- Timing: MEE about 30 minutes per question (6 questions); MPT 90 minutes per task (2 tasks).
-- Subparts carry weights. A strong answer on one subpart does not guarantee a top grade.
+## Ground rules
+1. **Estimate, not prediction.** Say once, briefly, that the score is a practice estimate. Do not repeat the disclaimer.
+2. **The official grading material controls.** If the user supplies an NCBE MEE analysis or MPT drafters' point sheet, grade against it. Its Points, weights, and bracketed NOTES override your own view of the law.
+3. **The call of the question controls.** Credit only what answers the question asked. Material that does not respond to the call earns nothing, even if it is accurate.
+4. **No invented law or invented official materials.** If no analysis or point sheet is provided, build your own rubric (see below), say that you did, and flag any point where a jurisdiction split or recent rule change could change the answer. Never claim to know the contents of an official analysis you were not given.
+5. **Do not reproduce NCBE text.** Paraphrase rubric points. Quote at most a short phrase when exact wording matters.
+6. **Legacy UBE only.** If the user is preparing for the NextGen UBE, say this skill does not apply and point them to NCBE's NextGen Constructed Response Guide and sample scoring guides.
 
-## Because you only see one paper
-You cannot truly rank against a pool. Compensate:
-1. Grade against the rubric (issues, rules, application, conclusion, writing).
-2. Convert to an estimated 1-6 band using the anchors below.
-3. State that the band is relative to a typical applicant pool and give a confidence range (e.g., 3-4).
-4. If the user submits several essays, rank them against each other and spread the grades across the scale. Do not bunch (e.g., giving most a 4).
+## Inputs to collect
+- The question (MEE fact pattern and calls) or MPT task memo. Ask for it if missing; you cannot grade responsiveness without the call.
+- The examinee's answer.
+- Optional: the NCBE analysis or point sheet.
+- Optional: whether the answer was written under timed conditions (MEE about 30 minutes; MPT 90 minutes).
 
-## Band anchors (1-6)
-These anchors are this skill's own wording, not official NCBE descriptors.
-- **6**: Spots nearly all issues including subtle ones; accurate rules stated concisely; heavy fact-by-fact application on both sides; clear conclusions; well organized.
-- **5**: Most issues; mostly accurate rules; solid application with minor gaps.
-- **4**: Main issues spotted, rules mostly right, application thin or conclusory in places.
-- **3**: Misses significant issues or misstates rules; application mostly conclusory.
-- **2**: Few issues; rules wrong or missing; little use of facts.
-- **1**: Little relevant content, wrong area of law, or largely unresponsive.
+If several answers to the same question are submitted, grade them all, then rank them against each other (see "Multiple answers").
 
-Use the full range. A merely competent paper is not automatically a 4.
+## Procedure
 
-## MEE review procedure
-1. Identify the subject(s) tested and the issue list (from user-provided analysis, or build one yourself). Note which issues are major vs minor.
-2. For each issue score: (a) spotted? (b) correct rule? (c) applied to the specific facts? (d) conclusion supported? Credit reasoning even when the conclusion differs from the model.
-3. Check use of facts: relevant facts used, irrelevant facts not padded in, facts that cut the other way acknowledged.
-4. Check organization: issue-by-issue headings or clear paragraphs, answers the call of the question, conclusions stated.
-5. Check writing: clear, organized, explains reasoning. Legalese and jargon earn nothing.
-6. Weight by importance. Missing the central issue costs more than missing a minor one.
+### Step 1. Build the rubric before reading the answer closely
+Write the rubric first so the answer does not anchor it.
 
-## MPT review procedure
-1. Confirm the task type (objective memo, persuasive brief, demand letter, opinion letter, etc.), audience, tone, and format instructions. Failing format or audience is a real deduction.
-2. The MPT does not test memorized law. Check that the answer uses only the provided File and Library, cites them accurately, and does not import outside law.
-3. Check that every subpart of the assignment is addressed, in the required order or format.
-4. Check legal analysis: correct reading of authorities, distinguishing adverse authority, using facts from the File.
-5. Check writing and professionalism more heavily than on the MEE, since tone, audience, and format are specified.
+- **With an MEE analysis:** list each Point with its stated weight, the conclusion the analysis reaches, the rule(s) it relies on, and the key facts it applies. Convert every bracketed NOTE into a grading instruction (no credit / substantial credit / not required / either answer acceptable).
+- **With an MPT point sheet:** list each question or sub-question from the task memo in the memo's order. Under each, list the expected analytical points, the controlling authorities from the Library, and any "stronger vs. weaker" distinctions. Point sheets do not give weights. Assign weights yourself in proportion to the analysis the point sheet devotes to each question, and state the weights you used.
+- **With neither:** draft a rubric in the same format. Identify the legal problems the calls raise, assign weights that sum to 100% (heavier for the central or harder issues), and note the conclusion you would expect. Label it "drafted rubric — not official."
+
+### Step 2. Score each rubric point
+For each point, decide the credit level:
+
+| Level | Fraction | When to use |
+|---|---|---|
+| Full | 1.0 | Issue identified, correct rule stated (wording need not match), applied to the specific facts, conclusion reached. |
+| Substantial | 0.75 | Correct outcome with a minor gap, or an approach the rubric expressly accepts (older or majority rule reaching the same result, a reasonable reading of an ambiguity, a well-reasoned position on a recognized split). |
+| Partial | 0.4 | Issue spotted but rule misstated, application conclusory, or conclusion unsupported. |
+| Minimal | 0.15 | Issue gestured at with no real rule or analysis. |
+| None | 0 | Missed, wrong area of law, or not responsive to the call. |
+
+These fractions are this skill's heuristic, not an NCBE scale. Apply them consistently.
+
+Tie-breakers for common borderline cases:
+- **Right conclusion, one required element or test prong missing:** Partial if the missing element is one the rubric applies to the facts (the grader would see the gap); Substantial if it is mentioned in the rubric only in passing.
+- **Full analysis but a significant counter-fact ignored:** still Full, unless the rubric's own application turns on that fact. Mention it as a small fix.
+- **Separate Points for merits and remedy:** score them independently. Being right on the merits earns nothing on a remedy Point the answer gets wrong.
+- **Wrong conclusion reached through doctrine a NOTE marks as irrelevant:** None for that Point, and list the doctrine under Wasted effort.
+
+Raw score = sum of (weight × fraction). Show the arithmetic.
+
+### Step 3. Adjust for writing and organization (holistic, small)
+NCBE treats written communication as part of what both components measure. Move the band by at most one step, and only for a clear reason:
+- Down: disorganized enough that a grader must hunt for the analysis; ignores a format instruction (MPT); conclusions missing.
+- Up is rare: a borderline answer that is unusually clear and well organized may round up.
+Legalese, length, and rule dumps earn nothing on their own.
+
+### Step 4. Map to a 1-6 band
+Use this heuristic map from the weighted raw score, then apply the Step 3 adjustment:
+
+| Raw | Band |
+|---|---|
+| 85-100% | 6 |
+| 70-84% | 5 |
+| 55-69% | 4 |
+| 40-54% | 3 |
+| 20-39% | 2 |
+| below 20% | 1 |
+
+Real grading is relative: a grader gives 6 to the best papers in the pile, even imperfect ones. You see one paper, so report a range (for example, "4, possibly 5") only when the raw score is within 3 points of a cutoff or the rubric was drafted rather than official. Otherwise report a single band.
+
+### Step 5. Write the feedback
+Use the output format below. Be direct. Rank fixes by points recoverable, not by how easy they are.
 
 ## Output format
-1. Estimated band (1-6) with a range and one-line rationale.
-2. Issue checklist: issue, spotted / partial / missed, one-line note.
-3. Top 3 fixes ranked by likely score impact.
-4. Writing and organization notes (brief).
-5. Optional: a model outline of the ideal answer, only if asked.
 
-Be direct and ranked. Avoid padding.
+```
+_Practice estimate, not a prediction of an actual bar score._
 
-## Calibration habits to copy
-- Read the whole paper before assigning a grade.
-- Keep a mental benchmark for each score point; compare to it, not to perfection.
-- Do not spread grades artificially. Distinctions should be meaningful. If nearly all issues are handled well or badly, the band can be extreme.
-- Do not penalize a harder-than-usual question; grade how well the examinee did relative to what a competent applicant could do.
+**Estimated band:** X (or range X-Y, see Step 4) — one-line reason
+**Rubric source:** Official analysis / Official point sheet / Drafted rubric
 
-See `references/sources.md` for the source articles this skill is based on.
+| Point (weight) | Expected | Credit | Note |
+|---|---|---|---|
+| ... | conclusion in a few words | Full/Substantial/Partial/Minimal/None | what earned or lost credit |
+
+**Raw score:** NN% (show sum)
+
+**Top fixes (by points recoverable):**
+1. ...
+2. ...
+3. ...
+
+**Wasted effort:** material that earned no credit (irrelevant doctrine, non-responsive discussion, issues the facts foreclose). Omit if none.
+
+**Writing and organization:** 1-3 short notes.
+```
+
+Offer a model outline of an ideal answer only if the user asks.
+
+## Multiple answers
+When grading several answers to the same question:
+1. Score each against the same rubric.
+2. Rank them.
+3. Spread bands across the scale to reflect real differences. Do not cluster everything at 4. Do not invent differences that are not there.
+4. Keep one benchmark answer per band in mind and compare each new answer to the benchmarks.
+
+## Common grading errors to avoid
+- Rewarding length, rule recitation, or issues the call did not ask about.
+- Penalizing a sound answer that reached a different conclusion on a genuinely open or split question.
+- Penalizing missing case names or section numbers on the MEE. Analyses cite heavily; examinees are not expected to.
+- Giving MEE-style credit for outside law on the MPT. The MPT is a closed universe.
+- Treating the analysis or point sheet as a model answer. Both say they are more detailed than an examinee answer is expected to be.
+- Following an obvious error in the official material. If the analysis or point sheet contradicts the question or task memo (for example, a stray sentence describing a different task), follow the question or memo and flag the inconsistency.

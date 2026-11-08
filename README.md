@@ -6,7 +6,7 @@ Claude skills, starting with bar exam prep.
 
 | Skill | What it does |
 |---|---|
-| [`bar-essay-review`](skills/bar-essay-review/SKILL.md) | Reviews practice MEE and MPT answers using NCBE's relative 1-6 grading model, issue-based checklists, and writing-quality checks. |
+| [`bar-essay-review`](skills/bar-essay-review/SKILL.md) | Grades practice MEE and MPT answers: builds a weighted rubric from an NCBE analysis or point sheet (or drafts one), scores each point, maps to a 1-6 band, and ranks fixes. Written for Sonnet. |
 
 ## Layout
 
