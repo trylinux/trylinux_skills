@@ -18,7 +18,8 @@ Read the reference file for the component you are grading before scoring:
 3. **The call of the question controls.** Credit only what answers the question asked. Material that does not respond to the call earns nothing, even if it is accurate.
 4. **No invented law or invented official materials.** If no analysis or point sheet is provided, build your own rubric (see below), say that you did, and flag any point where a jurisdiction split or recent rule change could change the answer. Never claim to know the contents of an official analysis you were not given.
 5. **Do not reproduce NCBE text.** Paraphrase rubric points. Quote at most a short phrase when exact wording matters.
-6. **Legacy UBE only.** If the user is preparing for the NextGen UBE, say this skill does not apply and point them to NCBE's NextGen Constructed Response Guide and sample scoring guides.
+6. **Grade to NCBE's own instructions to examinees.** The MEE test booklet tells examinees that an answer's value depends less on its conclusion than on showing an understanding of the facts, recognizing the issues, knowing the applicable principles, and explaining the reasoning. It also tells UBE examinees to answer under generally accepted fundamental legal principles, not local law, and not to assume facts that are not given. So: sound reasoning to a defensible wrong conclusion earns Substantial, not Partial; do not grade against any one state's law unless the question specifies it; and an answer that invents facts to reach its result loses credit on that Point.
+7. **Legacy UBE only.** If the user is preparing for the NextGen UBE, say this skill does not apply and point them to NCBE's NextGen Constructed Response Guide and sample scoring guides.
 
 ## Inputs to collect
 - The question (MEE fact pattern and calls) or MPT task memo. Ask for it if missing; you cannot grade responsiveness without the call.
@@ -64,15 +65,8 @@ Grading posture (from NCBE grader best practices):
 - **Grade only what is on the page.** An unfinished answer gets no credit for analysis it did not reach. Do not infer what the examinee "would have said."
 - **Factual errors** cost credit only when the analysis depends on them.
 
-### Step 3. Adjust for writing and organization (holistic, small)
-NCBE treats written communication as part of what both components measure. Move the band by at most one step, and only for a clear reason:
-- Down: disorganized enough that a grader must hunt for the analysis; ignores a format instruction (MPT); conclusions missing.
-- Up is rare: a borderline answer that is unusually clear and well organized may round up.
-Legalese, length, and rule dumps earn nothing on their own. Ignore typos unless they make the analysis unclear. Organization, precise word choice, appropriate detail, and a clear conclusion are what count, and they count more on the MPT.
-
-### Step 4. Map to a 1-6 band
-Use this heuristic map from the weighted raw score, then apply the Step 3 adjustment:
-
+### Step 3. Map to a 1-6 band
+Use this heuristic map from the weighted raw score:
 | Raw | Band |
 |---|---|
 | 85-100% | 6 |
@@ -97,9 +91,17 @@ Any honest attempt at the question earns at least a 1. Reserve 0 for a blank pag
 | 1 | Among the weakest. Little grasp of the facts or law; virtually no issue spotting or coherent analysis. |
 | 0 | No response, or completely unresponsive. |
 
-If the descriptor fits a different band than the raw score, one band away, trust the raw score but report a range covering both and say why in one line. If they differ by two or more bands, recheck the rubric scoring before reporting.
+Judge the descriptor on substance only (grasp of facts, issues, law, reasoning). Writing is handled in Step 4, so do not count it here.
 
-Real grading is relative: a grader gives 6 to the best papers in the pile, even imperfect ones. You see one paper, so report a range (for example, "4, possibly 5") only when the raw score is within 3 points of a cutoff or the rubric was drafted rather than official. Otherwise report a single band.
+If the descriptor fits a band one away from the raw-score band, trust the raw score but report a range covering both and say why in one line. If they differ by two or more bands, recheck the rubric scoring before reporting.
+
+### Step 4. Adjust for writing and organization (holistic, small)
+NCBE treats written communication as part of what both components measure. Move the band by at most one step, and only for a clear reason:
+- Down: disorganized enough that a grader must hunt for the analysis; ignores a format instruction (MPT); conclusions missing.
+- Up is rare: a borderline answer that is unusually clear and well organized may round up.
+Legalese, length, and rule dumps earn nothing on their own. Ignore typos unless they make the analysis unclear. Organization, precise word choice, appropriate detail, and a clear conclusion are what count, and they count more on the MPT.
+
+Real grading is relative: a grader gives 6 to the best papers in the pile, even imperfect ones. You see one paper, so report a range (for example, "4, possibly 5") when any of these holds: the raw score is within 3 points of a cutoff, the Step 3 cross-check disagreed by one band, or the rubric was drafted rather than official. Otherwise report a single band.
 
 ### Step 5. Write the feedback
 Use the output format below. Be direct. Rank fixes by points recoverable, not by how easy they are.
@@ -109,7 +111,7 @@ Use the output format below. Be direct. Rank fixes by points recoverable, not by
 ```
 _Practice estimate, not a prediction of an actual bar score._
 
-**Estimated band:** X (or range X-Y, see Step 4) — one-line reason
+**Estimated band:** X (or range X-Y, see Steps 3-4) — one-line reason
 **Rubric source:** Official analysis / Official point sheet / Drafted rubric
 
 | Point (weight) | Expected | Credit | Note |
@@ -145,7 +147,7 @@ This skill reports on NCBE's 1-6 scale (0 for nonresponsive). If the user asks f
 ## Common grading errors to avoid
 - Rewarding length, rule recitation, or issues the call did not ask about.
 - Penalizing a sound answer that reached a different conclusion on a genuinely open or split question.
-- Penalizing missing case names or section numbers on the MEE. Analyses cite heavily; examinees are not expected to.
+- Penalizing missing case names or section numbers on the MEE. NCBE's instructions ask for principles and reasoning, not citations; the analyses cite for graders' benefit.
 - Giving MEE-style credit for outside law on the MPT. The MPT is a closed universe.
 - Treating the analysis or point sheet as a model answer. Both say they are more detailed than an examinee answer is expected to be.
 - Following an obvious error in the official material. If the analysis or point sheet contradicts the question or task memo (for example, a stray sentence describing a different task), follow the question or memo and flag the inconsistency.

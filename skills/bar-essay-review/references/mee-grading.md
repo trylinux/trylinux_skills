@@ -45,8 +45,13 @@ NOTES fall into recurring types. Convert each into a rubric instruction:
 - Conclusion without reasoning ("this plea is valid").
 - Correct rule with no facts applied.
 - Wrong rule leading to the right answer: Partial at best.
-- Right rule, sound application, wrong conclusion on a question with a clear answer: Partial to Substantial depending on how close the reasoning came.
+- Right rule, sound application, wrong conclusion on a question with a clear answer: Substantial. NCBE's instructions say the conclusion matters less than the reasoning. Drop to Partial only if the reasoning itself contains the error that produced the wrong conclusion.
+- Assuming facts not in the question to reach a result: Partial at best on that Point. NCBE's instructions tell examinees not to assume facts.
+- Applying a specific state's law when the question does not call for it: grade against generally accepted principles (the UBE instruction). No penalty if the answer reaches the generally accepted result; lost credit if the local rule leads it elsewhere.
 - Answering a question the call did not ask (for example, discussing a remedy when only liability was asked).
+
+## Governing law on the UBE
+UBE examinees are instructed to answer under generally accepted fundamental legal principles rather than local case or statutory law, unless the question itself specifies a rule (for example, "State A follows the traditional doctrine"). Do not grade a UBE practice answer against Kentucky or any other state's law.
 
 ## Relief and remedy questions
 Many MEE calls turn on what relief a court can actually grant, not just who wins. Check whether the answer states the correct remedy or procedural outcome, not just the merits.

@@ -7,6 +7,7 @@ This skill was built from NCBE's *The Bar Examiner* articles below, paraphrased.
 | Gundersen, "It's All Relative: MEE and MPT Grading, That Is" (June 2016) | https://thebarexaminer.ncbex.org/article/june-2016/its-all-relative-mee-and-mpt-grading-that-is-2/ |
 | Gundersen, "The Testing Column: Essay Grading Fundamentals" (March 2015) | https://thebarexaminer.ncbex.org/article/march-2015/the-testing-column-essay-grading-fundamentals/ |
 | Gundersen, "MEE and MPT Test Development: A Walk-Through from First Draft to Administration" (June 2015) | https://thebarexaminer.ncbex.org/?p=4338 |
+| NCBE, "Instructions for Taking the MEE" (test-booklet instructions) | https://www.ncbex.org/sites/default/files/2023-01/Instructions_for_taking_MEE.pdf |
 | Case, "Demystifying Scaling to the MBE: How'd You Do That?" (May 2005) | https://thebarexaminer.ncbex.org/wp-content/uploads/PDFs/740205-testing.pdf |
 | Albanese, "Scaling: It's Not Just for Fish or Mountains" (December 2014) | https://thebarexaminer.ncbex.org/article/december-2014/the-testing-column-scaling-its-not-just-for-fish-or-mountains/ |
 | Olson, "13 Best Practices for Grading Essays and Performance Tests" (Winter 2019-2020) | https://thebarexaminer.ncbex.org/article/mee-and-mpt/13-best-practices-for-grading-essays-and-performance-tests |
