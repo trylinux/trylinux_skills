@@ -9,6 +9,15 @@ This skill was built from NCBE's *The Bar Examiner* articles below, paraphrased.
 | Gundersen, "MEE and MPT Test Development: A Walk-Through from First Draft to Administration" (June 2015) | https://thebarexaminer.ncbex.org/?p=4338 |
 | Case, "Demystifying Scaling to the MBE: How'd You Do That?" (May 2005) | https://thebarexaminer.ncbex.org/wp-content/uploads/PDFs/740205-testing.pdf |
 | Albanese, "Scaling: It's Not Just for Fish or Mountains" (December 2014) | https://thebarexaminer.ncbex.org/article/december-2014/the-testing-column-scaling-its-not-just-for-fish-or-mountains/ |
+| Olson, "13 Best Practices for Grading Essays and Performance Tests" (Winter 2019-2020) | https://thebarexaminer.ncbex.org/article/mee-and-mpt/13-best-practices-for-grading-essays-and-performance-tests |
+
+## Secondary sources
+| Source | Used for | Link |
+|---|---|---|
+| Smart Bar Prep, "MEE Grading & Scoring" | Jurisdiction raw-scale list, South Dakota scaling exception, Washington descriptors | https://smartbarprep.com/the-smart-guide-to-the-mee/mee-grading-scoring/ |
+| JD Advising, "MEE Grading Rubric" | Confirms the descriptors are WSBA's and have been offline since December 2019 | https://jdadvising.com/mee-grading-rubric/ |
+
+Where a secondary source conflicted with NCBE, NCBE was followed (calibration packet size and the 0 vs. 1-6 scale both come from Olson 2019).
 
 ## Official practice materials (NCBE)
 - Study aids store (MEE analyses, MPT point sheets): https://store.ncbex.org/

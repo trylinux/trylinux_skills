@@ -58,11 +58,17 @@ Tie-breakers for common borderline cases:
 
 Raw score = sum of (weight × fraction). Show the arithmetic.
 
+Grading posture (from NCBE grader best practices):
+- **Empty bucket.** Start at zero and look for reasons to award credit. Do not hunt for flaws to deduct.
+- **Credit reasoning, not labels.** A correct rule and sound analysis earn credit even when the doctrine is misnamed or the conclusion is wrong.
+- **Grade only what is on the page.** An unfinished answer gets no credit for analysis it did not reach. Do not infer what the examinee "would have said."
+- **Factual errors** cost credit only when the analysis depends on them.
+
 ### Step 3. Adjust for writing and organization (holistic, small)
 NCBE treats written communication as part of what both components measure. Move the band by at most one step, and only for a clear reason:
 - Down: disorganized enough that a grader must hunt for the analysis; ignores a format instruction (MPT); conclusions missing.
 - Up is rare: a borderline answer that is unusually clear and well organized may round up.
-Legalese, length, and rule dumps earn nothing on their own.
+Legalese, length, and rule dumps earn nothing on their own. Ignore typos unless they make the analysis unclear. Organization, precise word choice, appropriate detail, and a clear conclusion are what count, and they count more on the MPT.
 
 ### Step 4. Map to a 1-6 band
 Use this heuristic map from the weighted raw score, then apply the Step 3 adjustment:
@@ -75,6 +81,23 @@ Use this heuristic map from the weighted raw score, then apply the Step 3 adjust
 | 40-54% | 3 |
 | 20-39% | 2 |
 | below 20% | 1 |
+| blank or completely nonresponsive | 0 |
+
+Any honest attempt at the question earns at least a 1. Reserve 0 for a blank page or an answer with no connection to the question.
+
+**Holistic cross-check.** After mapping, read the descriptor for the band you landed on. These paraphrase grading descriptors once published by the Washington State Bar Association for UBE essays (no longer online):
+
+| Band | Descriptor |
+|---|---|
+| 6 | Very good. Thorough grasp of the facts, the issues, and the law; reasons to sound conclusions; well written. |
+| 5 | Above average. Fairly complete grasp of the facts and most issues; fairly good reasoning; relatively well written. |
+| 4 | Average. Fairly good grasp of the facts and most issues; satisfactory writing. |
+| 3 | Somewhat below average. On balance inadequate; limited understanding of the law and limited reasoning. |
+| 2 | Below average. Significantly flawed; rudimentary understanding; very limited reasoning; poor writing. |
+| 1 | Among the weakest. Little grasp of the facts or law; virtually no issue spotting or coherent analysis. |
+| 0 | No response, or completely unresponsive. |
+
+If the descriptor fits a different band than the raw score, one band away, trust the raw score but report a range covering both and say why in one line. If they differ by two or more bands, recheck the rubric scoring before reporting.
 
 Real grading is relative: a grader gives 6 to the best papers in the pile, even imperfect ones. You see one paper, so report a range (for example, "4, possibly 5") only when the raw score is within 3 points of a cutoff or the rubric was drafted rather than official. Otherwise report a single band.
 
@@ -113,6 +136,11 @@ When grading several answers to the same question:
 2. Rank them.
 3. Spread bands across the scale to reflect real differences. Do not cluster everything at 4. Do not invent differences that are not there.
 4. Keep one benchmark answer per band in mind and compare each new answer to the benchmarks.
+5. Expect more 3s and 4s than 1s and 6s, but every band should be usable.
+6. Guard against drift: after grading the batch, re-check the first few answers against the benchmarks. A run of strong or weak papers can make an average paper look better or worse than it is.
+
+## Converting to a jurisdiction's scale
+This skill reports on NCBE's 1-6 scale (0 for nonresponsive). If the user asks for their jurisdiction's scale, convert proportionally and say it is an approximation. Scales vary (for example 0-6, 1-6, 0-7, 0-10, 0-20); see `references/grading-model.md`. Raw scales do not change the final result in UBE jurisdictions, because all raw written scores are scaled to the MBE.
 
 ## Common grading errors to avoid
 - Rewarding length, rule recitation, or issues the call did not ask about.
