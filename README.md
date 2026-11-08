@@ -25,3 +25,7 @@ skills/
 ## Disclaimer
 
 Scores are practice estimates, not predictions of bar results. Not affiliated with NCBE. Not legal advice.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
