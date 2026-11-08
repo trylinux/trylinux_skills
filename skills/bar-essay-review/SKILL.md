@@ -36,7 +36,11 @@ Write the rubric first so the answer does not anchor it.
 
 - **With an MEE analysis:** list each Point with its stated weight, the conclusion the analysis reaches, the rule(s) it relies on, and the key facts it applies. Convert every bracketed NOTE into a grading instruction (no credit / substantial credit / not required / either answer acceptable).
 - **With an MPT point sheet:** list each question or sub-question from the task memo in the memo's order. Under each, list the expected analytical points, the controlling authorities from the Library, and any "stronger vs. weaker" distinctions. Point sheets do not give weights. Assign weights yourself in proportion to the analysis the point sheet devotes to each question, and state the weights you used.
-- **With neither:** draft a rubric in the same format. Identify the legal problems the calls raise, assign weights that sum to 100% (heavier for the central or harder issues), and note the conclusion you would expect. Label it "drafted rubric — not official."
+- **With neither:** draft a rubric in the same format. Identify the legal problems the calls raise, assign weights that sum to 100% (heavier for the central or harder issues, and in proportion to how the call itself is structured), and note the conclusion you would expect. Label it "drafted rubric — not official."
+  - **Set the ceiling at a strong timed answer, not a perfect one.** List what the best real answers in a grading pool would do in the time allowed. Do not list every point a treatise would make. Testing showed that rubrics built to a perfect answer scored examiner-confirmed top answers one to two bands low.
+  - Add a separate row for an overall recommendation or conclusion only when the call asks for one (common on MPTs; usually 10%).
+  - For a call that asks for an argument on one side ("prepare an argument for X"), the expected content is the strongest available theory for that side, the facts that support it, and a response to the obvious counter. There is no "correct conclusion" to score.
+  - For a call that asks for dollar figures, the expected content is the correct measure of recovery first, the arithmetic second.
 
 ### Step 2. Score each rubric point
 For each point, decide the credit level:
@@ -56,6 +60,16 @@ Tie-breakers for common borderline cases:
 - **Full analysis but a significant counter-fact ignored:** still Full, unless the rubric's own application turns on that fact. Mention it as a small fix.
 - **Separate Points for merits and remedy:** score them independently. Being right on the merits earns nothing on a remedy Point the answer gets wrong.
 - **Wrong conclusion reached through doctrine a NOTE marks as irrelevant:** None for that Point, and list the doctrine under Wasted effort.
+- **Right conclusion, doctrine misnamed or rule loosely stated, but the reasoning tracks the right idea:** Substantial. NCBE tells graders to credit sound reasoning even when the doctrine is misnamed. Drop to Partial only when the legal theory itself is wrong, not just mislabeled.
+- **Right conclusion through a weaker but defensible theory** (for example, an excuse doctrine where a contract-terms argument was stronger): Substantial if the theory is a legitimate route to the result; Partial if it does not actually fit the facts.
+- **Correct measure, arithmetic slip:** Substantial. **Wrong measure, clean arithmetic:** Partial.
+- **Misreads the call but applies real law to adjacent facts:** Partial. None is for material with no connection to the call.
+- **Assumed fact:** an assumption the examinee flags because the facts are silent ("assuming X, since the facts do not say") is acceptable. An unflagged invented fact that the analysis depends on costs credit on that Point.
+- **Factual error that helps the examinee's conclusion:** cap that Point at Substantial.
+- **Self-contradicting reasoning** (states a rule as mandatory, then concludes as if it were not): Partial.
+- **When two tie-breakers apply to one Point,** apply the more severe one once. Do not stack caps.
+- **Weighting sub-parts of a call:** split the call's weight across its sub-parts in proportion to the analysis each needs. An "effect of an alternative scenario" call gets less weight than the primary analysis it depends on, usually about half.
+- **Citation quality** (MPT: Library authorities named; MEE: not required) is scored inside the Point, not as a writing adjustment. An MPT row with a correct result and no authority cited is capped at Substantial.
 
 Raw score = sum of (weight × fraction). Show the arithmetic.
 
@@ -66,7 +80,10 @@ Grading posture (from NCBE grader best practices):
 - **Factual errors** cost credit only when the analysis depends on them.
 
 ### Step 3. Map to a 1-6 band
-Use this heuristic map from the weighted raw score:
+First state which rubric you used, then apply only the matching table.
+
+**If you used an OFFICIAL NCBE analysis or point sheet:**
+
 | Raw | Band |
 |---|---|
 | 85-100% | 6 |
@@ -75,9 +92,23 @@ Use this heuristic map from the weighted raw score:
 | 40-54% | 3 |
 | 20-39% | 2 |
 | below 20% | 1 |
-| blank or completely nonresponsive | 0 |
 
-Any honest attempt at the question earns at least a 1. Reserve 0 for a blank page or an answer with no connection to the question.
+**If you DRAFTED the rubric (no official material):**
+
+| Raw | Band |
+|---|---|
+| 75-100% | 6 |
+| 58-74% | 5 |
+| 42-57% | 4 |
+| 28-41% | 3 |
+| 14-27% | 2 |
+| below 14% | 1 |
+
+Either table: 0 for a blank page or a completely nonresponsive answer. Any honest attempt earns at least a 1. Write the lookup explicitly in your output, for example "Drafted rubric, 45% → band 4."
+
+The drafted table is lower because a drafted rubric reflects the grader's own view of the law, and testing against examiner-confirmed high-scoring answers showed drafted-rubric raw scores running 10-15 points below where real graders placed the same papers (see `references/calibration.md`). The official table has not been validated against real scores; treat it as provisional.
+
+Remember what the bands mean in real grading: a 6 is the best paper in the pile, not a perfect paper. Top-pool answers routinely contain a doctrinal error or a thin section. One such flaw does not take a paper out of 5-6.
 
 **Holistic cross-check.** After mapping, read the descriptor for the band you landed on. These paraphrase grading descriptors once published by the Washington State Bar Association for UBE essays (no longer online):
 
@@ -101,7 +132,7 @@ NCBE treats written communication as part of what both components measure. Move 
 - Up is rare: a borderline answer that is unusually clear and well organized may round up.
 Legalese, length, and rule dumps earn nothing on their own. Ignore typos unless they make the analysis unclear. Organization, precise word choice, appropriate detail, and a clear conclusion are what count, and they count more on the MPT.
 
-Real grading is relative: a grader gives 6 to the best papers in the pile, even imperfect ones. You see one paper, so report a range (for example, "4, possibly 5") when any of these holds: the raw score is within 3 points of a cutoff, the Step 3 cross-check disagreed by one band, or the rubric was drafted rather than official. Otherwise report a single band.
+Real grading is relative: a grader gives 6 to the best papers in the pile, even imperfect ones. You see one paper, so report a range (for example, "4, possibly 5") when either of these holds: the raw score is within 3 points of the cutoff above or below it, or the Step 3 cross-check disagreed by one band. Otherwise report a single band. The rubric source does not by itself trigger a range.
 
 ### Step 5. Write the feedback
 Use the output format below. Be direct. Rank fixes by points recoverable, not by how easy they are.
@@ -112,6 +143,7 @@ Use the output format below. Be direct. Rank fixes by points recoverable, not by
 _Practice estimate, not a prediction of an actual bar score._
 
 **Estimated band:** X (or range X-Y, see Steps 3-4) — one-line reason
+**Band lookup:** Official/Drafted table, NN% → band X
 **Rubric source:** Official analysis / Official point sheet / Drafted rubric
 
 | Point (weight) | Expected | Credit | Note |
@@ -134,12 +166,16 @@ Offer a model outline of an ideal answer only if the user asks.
 
 ## Multiple answers
 When grading several answers to the same question:
-1. Score each against the same rubric.
-2. Rank them.
-3. Spread bands across the scale to reflect real differences. Do not cluster everything at 4. Do not invent differences that are not there.
-4. Keep one benchmark answer per band in mind and compare each new answer to the benchmarks.
-5. Expect more 3s and 4s than 1s and 6s, but every band should be usable.
-6. Guard against drift: after grading the batch, re-check the first few answers against the benchmarks. A run of strong or weak papers can make an average paper look better or worse than it is.
+1. Build the rubric once and show it once at the top. Give the practice-estimate disclaimer once.
+2. Score each answer against the same rubric. Use the per-answer output format, but omit the repeated "Rubric source" line.
+3. Rank by raw score. Bands may overlap between answers; the raw score and the ranking carry the distinction.
+4. Spread bands only as far as the raw scores justify. A gap of 8 or more raw points is a real difference; a gap under 5 is not, and two such answers can share a band.
+5. The highest-scoring answer in a batch of five or more is your benchmark for the top of the pile; compare the others to it rather than to an ideal.
+6. Guard against drift: after grading the batch, re-check the first answer against the last. A run of strong or weak papers can make an average paper look better or worse than it is.
+7. End with a ranking table: rank, answer label, raw score, band, one-line reason.
+
+## State-drafted essays (non-UBE jurisdictions)
+If the question is a state-drafted essay rather than an MEE (the instructions say to assume a named state's law; there are more or longer calls than a 30-minute MEE; the exam is from a non-UBE jurisdiction such as Georgia or Florida), the skill still applies with these changes, detailed in `references/mee-grading.md`: grade under the named state's law where the examinee states it and it is consistent with what you know; flag any state-specific rule you cannot verify; do not penalize a correct generally accepted rule unless you know the state departs from it; and scale length expectations to the actual time per question. Always use the drafted-rubric table in Step 3 unless the state publishes a grading analysis.
 
 ## Converting to a jurisdiction's scale
 This skill reports on NCBE's 1-6 scale (0 for nonresponsive). If the user asks for their jurisdiction's scale, convert proportionally and say it is an approximation. Scales vary (for example 0-6, 1-6, 0-7, 0-10, 0-20); see `references/grading-model.md`. Raw scales do not change the final result in UBE jurisdictions, because all raw written scores are scaled to the MBE.
@@ -150,4 +186,5 @@ This skill reports on NCBE's 1-6 scale (0 for nonresponsive). If the user asks f
 - Penalizing missing case names or section numbers on the MEE. NCBE's instructions ask for principles and reasoning, not citations; the analyses cite for graders' benefit.
 - Giving MEE-style credit for outside law on the MPT. The MPT is a closed universe.
 - Treating the analysis or point sheet as a model answer. Both say they are more detailed than an examinee answer is expected to be.
+- Grading a drafted rubric as if it were official. Your rubric reflects your reading of the law; a real grader's pile reflects what examinees actually wrote. Use the drafted table and the "strong timed answer" ceiling.
 - Following an obvious error in the official material. If the analysis or point sheet contradicts the question or task memo (for example, a stray sentence describing a different task), follow the question or memo and flag the inconsistency.

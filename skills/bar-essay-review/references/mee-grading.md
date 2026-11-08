@@ -57,4 +57,13 @@ UBE examinees are instructed to answer under generally accepted fundamental lega
 Many MEE calls turn on what relief a court can actually grant, not just who wins. Check whether the answer states the correct remedy or procedural outcome, not just the merits.
 
 ## Length expectations
-An answer written in 30 minutes is much shorter than the analysis. Do not compare word counts. Compare issue coverage and the quality of application.
+An answer written in 30 minutes is much shorter than the analysis. Do not compare word counts. Compare issue coverage and the quality of application. If the question is not an MEE, find out the time allowed (ask, or infer from the exam: for example, Georgia gives four essays in a three-hour session, about 45 minutes each) and scale expectations accordingly.
+
+## State-drafted essays (non-UBE jurisdictions)
+Some users will submit essays from a state that writes its own questions (Georgia, Florida, Pennsylvania, and others). These differ from the MEE:
+- **Governing law.** The instructions name a state. Grade under that state's law where the examinee states a state rule and it is consistent with what you know. Where you cannot verify a state-specific rule, say so in the Note column and give credit for a correct generally accepted rule unless you know the state departs from it. Do not deduct for a UCC or Restatement rule that the state also follows.
+- **Call structure.** Expect more calls (three or four) with sub-parts, and calls that ask for advocacy ("argue for X"), numbers ("estimate the damages"), or strategy ("what should the client do"). Build one rubric row per call or sub-part, weighted by the call's emphasis; do not force the MEE "Legal Problems" structure.
+- **Advocacy calls.** Score the strength of the argument: does it lead with the best available theory, marshal the supporting facts, and answer the obvious counter? A weaker but legitimate theory earns Substantial. Do not score a "conclusion."
+- **Numeric calls.** The measure of recovery is the point; arithmetic is secondary. Correct measure with a slip earns Substantial. Wrong measure (for example, cost instead of contract price) earns Partial even if the arithmetic is clean. Failing to say that alternative remedies (expectation vs. reliance) do not stack is a Partial-level gap on that row.
+- **Rubric ceiling.** State-published sample answers that received high scores routinely contain a doctrinal error or a thin section. Build the rubric to what a strong answer does in the time allowed, and use the drafted-rubric band table in SKILL.md Step 3.
+- **No official analysis.** Most of these states publish sample high-scoring answers, not analyses. If the user supplies one, use it as a benchmark for the top of the pool (band 5-6), not as a rubric; its errors tell you what real graders forgave.
