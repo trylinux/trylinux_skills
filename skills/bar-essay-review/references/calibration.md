@@ -64,7 +64,7 @@ Observations:
 | **v4** | Rule and Application **counted against Step 1 checklists**; fixed row rule; MPT gate 0.40 | **0.86** | **0.0 / 0.7** | **−0.1 / 0.9** | Adopted |
 
 ### Run-to-run noise (v4)
-The MPT ladder was graded twice by independent graders. Mean absolute difference 3.3 raw points (max 8.2); band agreement 10/10. Under impression-based scoring (baseline through v3) the same answers swung 15-25 raw points between runs. Checklist counting is the main reason v4 is usable for a single grade.
+The MPT ladder was graded twice by independent graders on the same v4 skill. Mean absolute difference 3.3 raw points (max 8.2); band agreement 10/10. For comparison, between the impression-based versions (baseline through v3), rewording the scoring guidance moved the same answers by 15-25 raw points, which is why impression-based scoring was abandoned. No same-skill repeat was run on those earlier versions.
 
 ### Holdout (v4, drafted path)
 - New York above-average: 7/7 at band 5-6 (expected ≥ 4).
@@ -75,7 +75,7 @@ The MPT ladder was graded twice by independent graders. Mean absolute difference
 Band cutoffs were deliberately not tuned on the ladders: with near-zero bias on both item types, fitting cutoffs to 20 answers would overfit. The official and drafted tables are unchanged from benchmark set 1.
 
 ### Limits
-- One MEE item and one MPT item with real scores. Rank correlation of about 0.87 is in the range reported for agreement between trained human graders on essays, but this is one subject each.
+- At the time of this set: one MEE item and one MPT item with real scores (a second MEE item was added in benchmark set 3). Rank correlation of 0.87-0.95 is in the range reported for agreement between trained human graders on essays, but the subject coverage is still three items.
 - The released-state answers at the top of each ladder carry Seperac's assigned scores, which may be less exact than the examinee-reported ones.
 - No real-score data yet for weak answers on the drafted path.
 
@@ -100,6 +100,18 @@ Rank correlation 0.95; mean absolute band error 0.6; 9/10 within one band; bias 
 **Cutoff check.** Refitting the official table on two ladders and testing on the third (leave-one-ladder-out) gave held-out mean band error 0.77 versus 0.73 for the current table. The current cutoffs were kept. The middle-of-scale low bias is instead handled in the passing-line guidance (treat band 3 as borderline, not failing).
 
 **Pooled across the three real-score ladders (30 answers):** mean band error 0.73.
+
+## Verification of the shipped version (2026-11-08)
+The skill as committed (with the checklist conventions, passing-line read, and audit text fixes added after the set 3 run) was re-run blind on the same J25 ladder by ten fresh graders.
+
+| | v4c (set 3 run) | shipped version |
+|---|---|---|
+| Rank correlation (raw) | 0.95 | 0.95 |
+| Mean band error | 0.60 | 0.50 |
+| Within one band | 9/10 | 10/10 |
+| Band bias | −0.60 | −0.40 |
+
+Same-answer raw-score difference between the two runs: mean 3.0 points, max 7.0; bands agreed on 8/10 (the two changes were each one band, at cutoffs). The passing-line sentence was produced on 10/10 answers and was consistent with the band rule on 10/10. Audit of the result files: every reported band matched the table lookup from its own raw score (70/70 across all sets), and every point estimate sat inside its reported range.
 
 ## Benchmark set 0: synthetic MEE answer (2026-11-08)
 One answer written by the skill's author to July 2026 MEE Question 1 (Criminal Law and Procedure), with the official analysis supplied. Author predicted 62% / band 4; grader returned 62% / band 4. This confirms the skill is applied consistently, not that the official-rubric band map matches real graders. The official column remains unvalidated.

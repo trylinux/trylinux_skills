@@ -44,7 +44,7 @@ Checklist conventions:
 - A rule or fact that is partly stated (one prong of a two-part rule, or the right idea loosely put) counts as half an item.
 - Round each component to the nearest 0.05, rounding halves up.
 
-These checklists make Step 2 a count instead of an impression. Testing showed that impression-based scoring of the same answer varied by up to 25 raw points between graders; counting against a fixed checklist is what keeps it stable.
+These checklists make Step 2 a count instead of an impression. In testing, impression-based versions of this skill moved the same answer by up to 25 raw points when the scoring guidance was reworded; with checklist counting, two independent graders of the same answer agreed within about 3 raw points and on the same band every time.
 
 - **With an MEE analysis:** list each Point with its stated weight, the conclusion the analysis reaches, the rule(s) it relies on, and the key facts it applies. Convert every bracketed NOTE into a grading instruction (no credit / substantial credit / not required / either answer acceptable).
 - **With an MPT point sheet:** list each question or sub-question from the task memo in the memo's order. Under each, list the expected analytical points, the controlling authorities from the Library, and any "stronger vs. weaker" distinctions. Point sheets do not give weights. Assign weights yourself in proportion to the analysis the point sheet devotes to each question, and state the weights you used.
@@ -72,7 +72,7 @@ Write the counts in the Note column, for example "Rule 2/3 → .17; App 3/4 fact
 
 Fraction = sum of the components, after the gate (maximum 1.0).
 
-Label each Point for readability: Full (0.85 or more, which requires full Application), Substantial (0.60–0.84), Partial (0.35–0.59), Minimal (0.10–0.34), None (below 0.10).
+Label each Point for readability: Full (0.85 or more, which requires Application of at least 0.35), Substantial (0.60–0.84), Partial (0.35–0.59), Minimal (0.10–0.34), None (below 0.10).
 
 These components are this skill's heuristic, not an NCBE scale. Their purpose is to tell apart two answers that both "spot the issue". An answer that names the doctrine, states the rule, and applies the key facts must score well above one that only reaches the right result.
 
@@ -135,7 +135,7 @@ First state which rubric you used, then apply only the matching table.
 
 Either table: 0 for a blank page or a completely nonresponsive answer. Any honest attempt earns at least a 1. Write the lookup explicitly in your output, for example "Drafted rubric, 45% → band 4."
 
-The drafted table is lower because a drafted rubric reflects the grader's own view of the law, and testing against examiner-confirmed high-scoring answers showed drafted-rubric raw scores running 10-15 points below where real graders placed the same papers (see `references/calibration.md`). The official table was checked against 20 answers with real bar-examiner scores spanning the full range (one MEE and one MPT, scores 1 through 10 on a 10-point scale): band bias was about zero and rank correlation about 0.88. Treat any single grade as ±1 band.
+The drafted table is lower because a drafted rubric reflects the grader's own view of the law, and testing against examiner-confirmed high-scoring answers showed drafted-rubric raw scores running 10-15 points below where real graders placed the same papers (see `references/calibration.md`). The official table was checked against 30 answers with real bar-examiner scores spanning the full range (two MEE items and one MPT, scores 1 through 10 on a 10-point scale): rank correlation 0.87–0.95 by item, mean band error 0.73, and a bias between 0 and −0.6 band (the skill runs slightly low in the middle of the scale, see the passing-line read). Treat any single grade as ±1 band.
 
 Remember what the bands mean in real grading: a 6 is the best paper in the pile, not a perfect paper. Top-pool answers routinely contain a doctrinal error or a thin section. One such flaw does not take a paper out of 5-6.
 
@@ -198,7 +198,7 @@ _Practice estimate, not a prediction of an actual bar score._
 Offer a model outline of an ideal answer only if the user asks.
 
 ## Passing-line read
-Examinees want to know whether an essay would pass. On a UBE scaled to 266-270, an essay at about **band 3 is near the passing line**, **band 4 is comfortably passing**, and **band 2 or below is failing**. Band 5-6 essays bank points that offset weaker essays or MBE results. Say this in one line, for example "Band 4: comfortably passing; this is the level to hold on every essay."
+Examinees want to know whether an essay would pass. On a UBE scaled to 266-270, an essay at about **band 3 is near the passing line**, **band 4 is comfortably passing**, and **band 2 or below is failing**. Band 5-6 essays bank points that offset weaker essays or MBE results. Say this in one line, for example "Band 4: comfortably passing; this is the level to hold on every essay," or for a weak paper, "Band 1: failing; the first target is band 3, the passing line."
 
 Basis: Seperac's 0-10 essay scale, on which 5 is exactly passing (about 13.3 of 20 UBE points per essay in a 266 jurisdiction), maps to band 3 under the conversion in `references/calibration.md`. One essay score point on that scale is worth about two MBE questions. The passing line moves a little between administrations, because written scores are scaled to each exam's MBE: February written scores usually need to be a little higher than July's to pass. In testing, the skill ran slightly low in the middle of the scale, so treat a band 3 as borderline, not failing.
 
