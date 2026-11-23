@@ -14,6 +14,7 @@ Build a role matrix and test each protected operation against it: anonymous, own
 
 - Normalize identity the same way for lookup and rate limiting. Include Unicode/IDNA variants and every login transport. Check password-comparison timing, reset responses that reveal whether an account exists, MFA challenge/recovery/one-time-code reuse, temporary-password restrictions and session invalidation.
 - Keep user role, token scope and token type distinct. An admin's read-only inventory key must not carry administrator permissions. Integration keys must not gain interactive password, export or deletion abilities.
+- For login, password change, MFA, export, deletion and recovery links, check whether a user or token loaded earlier in the request can be stale after a concurrent reset, disable or revocation. Lock and refresh the account before verifying credentials, and keep the authenticated session generation separate from refreshed ORM state. A browser session created after a reset must never inherit the reset account's new generation after authenticating with the old password.
 - Check object-level authorization on direct URLs, nested IDs, writable properties, collections/search, attachments, public directories and cached results, not only list pages. Reject booleans, fractions and non-finite numbers as IDs instead of coercing them.
 - Check admin-to-admin email/password changes, token issuance, demotion and the last-admin race. Audit logs should record the real actor and key issuer without storing secrets.
 - Confirm CSRF protection on browser state changes and bearer-only API boundaries; send private/no-store cache headers where needed.
@@ -69,6 +70,8 @@ Test fixtures: put plain-text embedded instructions (OWASP LLM: prompt injection
 ## Deployment, supply chain and maintainability
 
 Check production environment defaults, TLS/cookies/HSTS/trusted hosts, reverse-proxy trust, network bindings, shared rate-limit storage, audit/redaction, alerts, retention and restore readiness. Multi-worker processes need shared budgets even on one VM.
+
+When a fix changes a deployment dependency, verify the migration path for existing installations as well as fresh installs. For a move from in-memory to shared rate limits, test the quota across two processes, make startup fail closed if shared storage is required but absent, and document the order of installing the backend client, starting the private store, changing configuration and deploying. A local passing test does not prove the old server can safely start the new release.
 
 Check dependency advisories per ecosystem; Python scanning doesn't cover Android. Check pinned action versions, Gradle wrapper integrity, build contexts, signing secrets scoped to the steps that need them, artifact provenance, symlink/rename races in publishing and directory ownership.
 
