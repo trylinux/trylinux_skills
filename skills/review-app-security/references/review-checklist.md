@@ -1,75 +1,75 @@
-# Security review lenses
+# Review checklist
 
-Apply these to the actual architecture. Historical defects are regression ideas, not assertions that every new target has them.
+Apply these checks to the actual architecture. Defects found in earlier projects are regression ideas, not assumptions about the current one. Each check should end as a test asserting the correct behavior, or as a not-applicable note with architectural evidence.
 
 ## Framework coverage
 
-At extraction on November 23, 2026, official sources identify [Web Top 10:2025](https://top10.owasp.org/2025/0x00_2025-Introduction/), [API Top 10:2023](https://api-security.owasp.org/editions/2023/en/0x11-t10/) and [LLM Top 10:2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/). Refresh the official sources for each new review. Historical PR #71 used older Web/LLM editions; do not copy its category numbers into a newer matrix.
+As of November 23, 2026, the official editions are [Web Top 10:2025](https://top10.owasp.org/2025/0x00_2025-Introduction/), [API Top 10:2023](https://api-security.owasp.org/editions/2023/en/0x11-t10/) and [LLM Top 10:2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/). Re-check the official sources at the start of each review. Earlier FAIRF reviews (PR #71) used older Web/LLM editions, so don't copy their category numbers.
 
-Create one row per category for each selected edition, including categories without confirmed findings. Trace code/tests to the category; “not applicable” needs architectural evidence. Review supply chain, cryptography, logging/alerting and exceptional conditions even when no scanner flags them. Add platform-specific controls where the Top 10 lists are too broad.
+Write one row per category for each edition, including categories with no findings. Link code and tests to the category; "not applicable" needs architectural evidence. Cover supply chain, cryptography, logging/alerting and error handling even when no scanner reports anything. Add platform-specific controls where the Top 10 lists are too broad.
 
 ## Authentication, authorization and tenant isolation
 
-Test an actor matrix: anonymous, owner, another user, disabled user, revoked/expired session, integration key, interactive mobile token, administrator, and a limited-scope key owned by an administrator.
+Build a role matrix and test each protected operation against it: anonymous, owner, another user, disabled user, revoked/expired session, integration key, interactive mobile token, administrator, and a limited-scope key issued by an administrator.
 
-- Normalize identity identically for lookup and throttling. Exercise Unicode/IDNA aliases and multiple login transports. Check password timing, reset enumeration, MFA challenges/recovery/replay, temporary-password restrictions and session invalidation.
-- Distinguish user role, token scope and token kind. An admin's read-only inventory key must not inherit administrator reach. Integration keys must not silently gain interactive password/export/deletion powers.
-- Check direct URLs, nested IDs, writable properties, collections/search, attachments, public directories and cached results, not only list pages. Reject booleans/fractions/non-finite numbers as IDs instead of coercing them.
-- Exercise admin-on-admin email/password changes, token minting, demotion and last-admin races. Audit the actual actor/key issuer without storing secrets.
-- Verify CSRF on browser mutations and bearer-only API boundaries; enforce private/no-store responses where needed.
-- Test shared records populated from private free text. Public photos do not automatically authorize publication of a private maker name, notes, metadata or unverified “official” URL.
+- Normalize identity the same way for lookup and rate limiting. Include Unicode/IDNA variants and every login transport. Check password-comparison timing, reset responses that reveal whether an account exists, MFA challenge/recovery/one-time-code reuse, temporary-password restrictions and session invalidation.
+- Keep user role, token scope and token type distinct. An admin's read-only inventory key must not carry administrator permissions. Integration keys must not gain interactive password, export or deletion abilities.
+- Check object-level authorization on direct URLs, nested IDs, writable properties, collections/search, attachments, public directories and cached results, not only list pages. Reject booleans, fractions and non-finite numbers as IDs instead of coercing them.
+- Check admin-to-admin email/password changes, token issuance, demotion and the last-admin race. Audit logs should record the real actor and key issuer without storing secrets.
+- Confirm CSRF protection on browser state changes and bearer-only API boundaries; send private/no-store cache headers where needed.
+- Check shared records built from private free text. Public photos don't automatically make a private maker name, notes, metadata or an unverified "official" URL publishable.
 
 ## Outbound requests, upstream data and parsers
 
-- Validate scheme, hostname, effective port, credentials and destination policy before attaching secrets. Check redirects, proxies, IPv4/IPv6, mapped/NAT64 addresses, private/link-local/metadata targets and DNS rebinding.
-- Host validation followed by a separate DNS resolution at connection time leaves a gap. For hardened public fetches, pin the validated address while preserving original Host and TLS hostname verification; do not “fix” SSRF by disabling TLS verification.
-- Stream with byte/deadline limits, including error bodies. Check truncation, recursive JSON, invalid encodings, control characters, enormous integers, NaN/infinity and unexpected types. Bound before buffering or decoding.
-- Treat provider/retailer URLs as untrusted. A model-generated URL is not automatically safe to fetch, render as a trusted source or mark verified.
-- Inspect uploaded content, extension/MIME disagreement, decompression/pixel/page limits and truncated images. Revalidate staged bytes/hash immediately before model processing.
-- Isolate PDF/scanner processes with fixed commands, minimal environment, bounded CPU/memory/time and private temporary files. Apply limits in a safe child process; copied parser paths must retain the same isolation.
-- Check output escaping in templates/DOM, URL sanitization and subprocess argument construction. Metadata stripping on images does not establish PDF/TXT sanitization or active-content removal.
-- Bound downloads, pagination, caches, polling, token creation, uploads and expensive business flows. Account-level budgets must not reset when a user creates another token or session.
+- Server-side requests (OWASP API7:2023): validate scheme, hostname, effective port, embedded credentials and destination allowlist before attaching any secret. Re-validate after redirects and through proxies; cover IPv4/IPv6, IPv4-mapped and NAT64 forms, and private, link-local and cloud-instance-metadata address ranges.
+- If the hostname is validated and then resolved again at connect time, the second resolution can return a different address. For public fetches, connect to the validated address while keeping the original Host header and TLS hostname verification. Never resolve this by disabling TLS verification.
+- Stream responses with byte and time limits, including error bodies. Handle truncation, deeply nested JSON, invalid encodings, control characters, very large integers, NaN/infinity and unexpected types. Enforce limits before buffering or decoding.
+- Treat provider and retailer URLs as untrusted. A model-generated URL is not automatically safe to fetch, display as a trusted source or mark verified.
+- Validate uploads: extension/MIME mismatch, decompression/pixel/page limits and truncated images. Re-check staged bytes or hash immediately before model processing.
+- Run PDF/scanner work in a separate process with fixed arguments, minimal environment, CPU/memory/time limits and private temp files. Any copied parser code path needs the same isolation.
+- Check output encoding in templates and DOM, URL sanitization and subprocess argument construction. Stripping image metadata does not sanitize PDF/TXT content or remove active content.
+- Bound downloads, pagination, caches, polling, token creation, uploads and expensive business flows. Account-level budgets must not reset when the user opens a new token or session.
 
-## AI, prompt injection and provider privacy
+## AI features: untrusted content and provider privacy
 
-Trace each stage separately: image/text extraction, search/research, assembly, summary, document chat, cache reuse, display, export and confirmed mutations.
+Review each stage separately: image/text extraction, search/research, assembly, summary, document chat, cache reuse, display, export and confirmed edits.
 
-Use harmless synthetic adversarial material in each reachable input: photographed text, pattern PDF/text, notes, source filenames, search results, citation titles/URLs, prior chat and intermediate model JSON. Check instructions that try to change models/endpoints, invoke forbidden tools, leak a canary, overwrite known data, fabricate authority, amplify paid calls or trigger an application mutation.
+Test fixtures: put plain-text embedded instructions (OWASP LLM: prompt injection) into every input the pipeline reads — photographed text, pattern PDFs/text, notes, filenames, search results, citation titles/URLs, prior chat turns and intermediate model JSON. The instructions ask the model to switch model or endpoint, call a tool it shouldn't have, echo a marker string from a protected field, overwrite known data, claim false authority, trigger extra paid calls or change application state. Each test asserts that none of those effects occur.
 
-- Enforce tool and endpoint capabilities in code. Private documents should not enter a public-search stage merely because a model asks. A no-tools claim must be rechecked when a later researcher gains provider-hosted search.
-- Refresh user consent, grants, enabled status and model configuration before later stages, fallbacks and HTTP retries. A stale ORM object is not a fresh authorization check.
-- Separate consent for extraction, external summaries and sharing. Enforce it on stored intermediate components as well as visible fields. Record unavoidable already-dispatched work honestly.
-- Persist only bounded, allowlisted model fields and accounting. Unknown fields must not become instructions or hidden retained data. Do not execute generated code or trust the model for access control.
-- Validate source membership and separately check whether evidence supports the claim. Keep uncertainty, source conflicts, original observations and photo-specific values; current web specifications must not overwrite label facts.
-- Scope caches to owner and complete input set, notes, source revision, models, prompt/pipeline version, consent and privacy settings as relevant. Retained artifacts without a valid fingerprint should not bypass stricter hot-cache rules.
-- Distinguish authoritative catalogs from user/model observations. Promotion must not bless poisoned metadata. Check deletion of orphaned private observations and partial imports.
-- Account for retries, search loops, nested billing, BYOK, malformed/unknown cost and parallel overshoot. A continuation threshold is not a hard invoice cap.
-- Recheck provider retention flags/routing eligibility against current official documentation. A preference sent to a provider is not independent proof of its internal handling.
-- Test requirements/record confirmation separately from chat answers. Pattern counts, inventory amounts, source permissions and measured machine settings must not be silently mutated by a response.
+- Enforce tool and endpoint permissions in code. Private documents should not reach a public-search stage because a model asked for it. If a later stage gains provider-hosted search, re-check any earlier "no tools" assumption.
+- Re-read consent, grants, enabled status and model configuration before each later stage, fallback and HTTP retry. A cached ORM object is not a fresh authorization check.
+- Keep consent separate for extraction, external summaries and sharing. Enforce it on stored intermediate data as well as visible fields. Record honestly any work already sent before consent was withdrawn.
+- Persist only bounded, allowlisted model fields and cost data. Unknown fields must not become instructions or hidden stored data. Never execute generated code or let the model decide access control.
+- Check that cited sources belong to the retrieved set and that they actually support the claim. Keep uncertainty, source conflicts, original observations and photo-specific values; current web specs must not overwrite label facts.
+- Key caches to owner and the complete input set: notes, source revision, models, prompt/pipeline version, consent and privacy settings. Retained artifacts without a valid fingerprint must follow the same rules as the hot cache.
+- Keep authoritative catalog data separate from user or model observations (OWASP LLM: data and model integrity). Promotion into the shared catalog must validate the data. Clean up orphaned private observations and partial imports.
+- Account for retries, search loops, nested billing, BYOK, malformed or unknown cost and parallel overshoot. A continuation threshold is not a hard spending cap.
+- Re-check provider retention flags and routing eligibility against current official docs. A preference sent to a provider doesn't prove how the provider handles data.
+- Test record changes separately from chat answers. Pattern counts, inventory amounts, source permissions and measured machine settings must not change because of a chat response without user confirmation.
 
-## Workers, transactions and privacy lifecycle
+## Workers, transactions and data lifecycle
 
-- Check leases on success **and every failure path**. A superseded attempt must not fail/requeue a newer attempt, duplicate a record or erase its staged photos. Exercise stale recovery, terminal jobs and bounded attempts.
-- Enqueue durable object erasure in the same transaction that removes references. A storage outage must retain a retry record. Test rollback after object writes and interruption around commit.
-- Avoid holding database locks across network calls. Release safely and recheck source fingerprint/revision, permissions and state before applying results.
-- Test inventory/reservation changes atomically under genuine database concurrency. Partial PATCH avoids unrelated overwrites but is not same-field optimistic concurrency.
-- Review account deletion, shared exports, local caches, S3 versions and backups separately. A queue entry does not prove bytes were erased; remote deletion cannot recall a previously exported copy.
+- Check job leases on success **and every failure path**. A superseded attempt must not fail or requeue a newer attempt, duplicate a record or delete its staged photos. Cover stale recovery, terminal jobs and bounded attempts.
+- Enqueue durable object deletion in the same transaction that removes references. A storage outage must leave a retry record. Test rollback after object writes and interruption around commit.
+- Don't hold database locks across network calls. Release, then re-check source fingerprint/revision, permissions and state before applying results.
+- Test inventory/reservation changes for atomicity under real database concurrency. Partial PATCH avoids clobbering unrelated fields but is not same-field optimistic concurrency.
+- Review account deletion, shared exports, local caches, S3 versions and backups separately. A queue entry doesn't prove bytes were erased; remote deletion can't recall an already-exported copy.
 
 ## Android transport, session and offline behavior
 
-- Forward bearer tokens only to the exact approved HTTPS origin, including effective port. Redirected storage media can be supported without forwarding credentials. API redirects must not leak bodies or headers.
-- Bind requests, results, caches and offline files to account/server/session generation. Cancel work on sign-out and reject late responses; an old 401 must not log out a newly signed-in account.
-- Preserve a known HTTP authentication failure even if its error body is oversized or unreadable. Confirmed revocation must still clear the token and protected offline data.
-- Separate transient network failure from confirmed invalid credentials. Do not destroy valid offline access merely because startup networking failed.
-- Prune revoked/deleted source bytes immediately after fresh server state is known, before progress conflict handling or later writes. Keep unrelated pending notes/row edits.
-- Inspect Keystore usage, backup exclusions, cleartext policy, FileProvider paths/export flags, external intents, bounded response/upload/image cache sizes and downsampling.
-- Test failed-save draft retention, duplicate submission, malformed numbers and partial edits through actual composables and backend transactions.
-- Record emulator/API versions and physical-device gaps. An offline client cannot learn a revocation until reconnection; document that limit instead of claiming instant remote erasure.
+- Send bearer tokens only to the exact approved HTTPS origin, including effective port. Redirected media storage can be supported without forwarding credentials. API redirects must not forward bodies or auth headers.
+- Bind requests, results, caches and offline files to account/server/session generation. Cancel work on sign-out and discard late responses; a stale 401 must not sign out a newly signed-in account.
+- Preserve a known HTTP auth failure even when its error body is oversized or unreadable. Confirmed revocation must still clear the token and protected offline data.
+- Distinguish transient network failure from confirmed invalid credentials. Don't wipe valid offline access because startup networking failed.
+- Remove revoked/deleted source files as soon as fresh server state is known, before progress-conflict handling or later writes. Keep unrelated pending notes and row edits.
+- Check Keystore use, backup exclusions, cleartext policy, FileProvider paths and export flags, external intents, response/upload/image-cache size limits and downsampling.
+- Test draft retention after failed save, duplicate submission, malformed numbers and partial edits through the actual composables and backend transactions.
+- Record emulator/API versions and physical-device gaps. An offline client can't learn about revocation until it reconnects; document that limit rather than claiming instant remote erasure.
 
 ## Deployment, supply chain and maintainability
 
-Inspect production environment defaults, TLS/cookies/HSTS/trusted hosts, reverse-proxy trust, network bindings, shared rate-limit storage, audit/redaction, alerts, retention and restore readiness. A multi-worker process needs shared budgets even on one VM.
+Check production environment defaults, TLS/cookies/HSTS/trusted hosts, reverse-proxy trust, network bindings, shared rate-limit storage, audit/redaction, alerts, retention and restore readiness. Multi-worker processes need shared budgets even on one VM.
 
-Check dependency advisories and transitive ecosystems separately; Python scanning does not audit Android. Inspect immutable action pins, wrapper integrity, build contexts, signing secrets limited to necessary steps, trusted artifact provenance, publisher symlink/rename races and directory ownership.
+Check dependency advisories per ecosystem; Python scanning doesn't cover Android. Check pinned action versions, Gradle wrapper integrity, build contexts, signing secrets scoped to the steps that need them, artifact provenance, symlink/rename races in publishing and directory ownership.
 
-Find duplicated validation, authorization, serialization, persistence and cleanup rules whose behavior has diverged. Compare web/API/admin paths before extracting a shared service. Separate useful fixes from speculative rewrites; do not roll unrelated catalog/UI work into a security patch.
+Find duplicated validation, authorization, serialization, persistence and cleanup logic that has diverged. Compare web, API and admin paths before extracting a shared service. Keep useful fixes separate from speculative rewrites; don't fold unrelated catalog/UI work into a security patch.

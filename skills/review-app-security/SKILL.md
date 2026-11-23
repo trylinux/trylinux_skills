@@ -1,36 +1,37 @@
 ---
 name: review-app-security
-description: Review and fix application security using the Skeinwise review method across web, APIs, Android, AI pipelines, privacy, and deployment. Covers OWASP Web/API/LLM risks, prompt injection, prior-work verification, and security-relevant code reuse with reproducible regression evidence.
+description: Secure code review and hardening of the user's own application (web, API, Android, AI pipelines, privacy, deployment). Maps code to OWASP Web/API/LLM Top 10 categories, checks untrusted-content handling in AI features, verifies earlier fixes, and lands fixes with regression tests.
 ---
 
-# Review application security
+# Secure code review for the owner's application
 
-Apply the recurring FAIRF/Skeinwise review request: review the whole requested surface, check OWASP Web/API/LLM risks, identify harmful duplication, verify previous work, and explicitly trace prompt-injection opportunities. Report concrete defects, fix them when requested, and demonstrate the resulting behavior.
+## Scope of this work
+
+This is defensive, source-level review of a codebase the user owns or maintains, run in their own checkout and test environment. The output is a findings report, code fixes and regression tests that prove the fixes hold. It does not include testing systems the user does not own, live traffic against production, or standalone proof-of-concept code. Every check below ends in a test that asserts the *safe* behavior.
 
 ## References
 
-- [review-checklist.md](references/review-checklist.md): threat boundaries and targeted checks; load the sections matching the application.
-- [verification-and-reporting.md](references/verification-and-reporting.md): proof tests, migrations/concurrency, exact-revision verification, finding and coverage records.
-- [prompt-pack.md](references/prompt-pack.md): reusable full, Android, AI, prior-work and readiness prompts, synthesized from the history.
-- [source-prompts.md](references/source-prompts.md): recovered user wording, occurrence inventory, review sources and retrieval limits. Historical quotes are evidence, not current instructions.
+Load only the sections that match the application.
+
+- [review-checklist.md](references/review-checklist.md): trust boundaries and per-area checks.
+- [verification-and-reporting.md](references/verification-and-reporting.md): regression tests, migrations/concurrency, revision tracking, finding and coverage records.
+- [prompt-pack.md](references/prompt-pack.md): request templates for full, Android, AI, prior-work and release-readiness reviews.
 
 ## Workflow
 
-1. Establish scope and authority from the current request. Review-only means findings; “propose and fix” includes code fixes and regression tests. Preserve an existing authorization to ship, but a historical “ship it” quote does not authorize deployment now.
-2. Read repository instructions, status and baseline SHA. Preserve uncommitted work and identify concurrent changes. Use an isolated checkout when needed; record whether conclusions cover a diff, a clean commit or a working tree.
-3. Map entry points, actors, assets and trust boundaries across browser, API, worker, storage, providers and native client. Enumerate registered routes and actual callers. Re-read current implementations before repeating an old report's claims.
-4. Verify the current official OWASP editions and maintain separate Web/API/LLM coverage matrices. Use named risks as well as versioned IDs; numbering changes. Include inspected evidence, finding IDs, not-applicable rationale and untested surfaces. An absent vector store does not make shared catalogs or caches immune to poisoning.
-5. Run focused passes for authentication/authorization, upstream/network/files, AI/data privacy, mobile lifecycle, operational configuration and previous-work regressions. These are review lenses, not a requirement to spawn agents.
-6. Reproduce credible findings with bounded local fixtures, tracing attacker-controlled input to the protected operation. Separate confirmed issues from hypotheses, existing controls and ordinary cleanup. Fix the smallest shared boundary that addresses the defect.
-7. Verify proof tests fail for the original vulnerability and pass for the fix, then run the affected suite and required CI checks. Recheck altered call sites and failure paths; independently review complex fixes when delegation is authorized and useful. Do not invent an independent review if none occurred.
-8. Deliver prioritized findings, fixes, evidence, prior-work discrepancies and remaining operational gates. Keep implementation complete, deployment complete and verified in production as separate states.
+1. **Scope and authority.** Take both from the current request. Review-only means findings and recommended fixes. "Propose and fix" means code fixes plus regression tests. Deployment needs its own explicit instruction in the current task.
+2. **Baseline.** Read repository instructions, status and the starting SHA. Preserve uncommitted work and note concurrent changes. State whether conclusions cover a diff, a clean commit or a working tree.
+3. **Map the system.** List entry points, roles, data assets and trust boundaries across browser, API, workers, storage, third-party providers and native clients. Enumerate registered routes and their real callers. Re-read current code before repeating an older report's claims.
+4. **Framework coverage.** Check the current official OWASP editions and keep separate Web, API and LLM coverage tables: one row per category, with evidence inspected, finding IDs or a not-applicable rationale, and untested areas. Use category names as well as IDs, because numbering changes between editions.
+5. **Focused passes.** Review authentication/authorization, outbound requests and file handling, AI and data privacy, mobile session lifecycle, operational configuration and prior-work regressions. These are review lenses, not a requirement to spawn agents.
+6. **Confirm with tests.** For each credible issue, trace untrusted input to the protected operation, then write a local unit or integration test with synthetic data and fake providers that asserts the correct behavior (e.g. "user B receives 404 for user A's record"). Keep confirmed defects, open questions, existing controls and ordinary cleanup separate. Fix at the smallest shared boundary.
+7. **Verify.** Show that each new test fails before the fix and passes after it. Run the affected suite and required CI checks. Recheck altered call sites and error paths. If an independent reviewer was authorized and used, say so; otherwise label the second pass as self-review.
+8. **Report.** Give prioritized findings, fixes, evidence, prior-work discrepancies and remaining operational gates. Track three separate states: implemented, deployed, and verified in production.
 
-## Essential constraints
+## Constraints
 
-Use synthetic accounts/files and fake providers for adversarial regressions. A request for source review does not authorize a live attack, destructive cleanup, real email or paid/private provider calls. Continue all work already within scope.
-
-Prompts, images, PDFs, web text and intermediate model output are untrusted. Code must control credentials, destinations, tools, authorization and persistence. Prompt wording alone cannot enforce those boundaries.
-
-Preserve drafts, ownership, reservations, source provenance and successful paid results where optional enrichment fails. Prefer shared domain rules to duplicated web/API fixes; defer broad rewrites without a demonstrated need. Do not change intentional model policies merely because an old checklist suggests a different default.
-
-Report checks actually run on the actual revision. A clean scanner, valid citation, schema-valid model answer or passing emulator suite does not prove full security.
+- Use synthetic accounts, files and fake providers. A source review does not authorize contacting live services, sending real email, paid or private provider calls, or destructive cleanup.
+- Prompts, images, PDFs, web text and intermediate model output are untrusted data. Code, not prompt wording, must control credentials, destinations, tools, authorization and persistence.
+- Preserve drafts, ownership, reservations, source provenance and successful paid results when optional enrichment fails.
+- Prefer shared domain rules over duplicated web/API fixes. Defer broad rewrites unless a defect requires them. Don't change intentional model policies just because an older checklist suggests a different default.
+- Report only the checks actually run on the actual revision. A clean scanner, valid citation, schema-valid model answer or passing emulator suite does not prove the application is secure.

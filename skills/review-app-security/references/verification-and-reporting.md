@@ -4,11 +4,11 @@
 
 Record the starting SHA and dirty-tree status; capture baseline failures before changing code. Keep reviewer work separate from pre-existing changes. Inspect source, callers and actual tests rather than treating a PR description as proof.
 
-For each hypothesis, identify attacker-controlled input, prerequisites, trust boundary, reachable operation, consequence and existing defenses. Build a bounded reproducer with synthetic data and fake services. If it cannot be reproduced, keep it as a question or unconfirmed risk, not a confirmed high-severity finding.
+For each hypothesis, identify the untrusted input, prerequisites, trust boundary, reachable operation, consequence and existing controls. Write a bounded local test with synthetic data and fake services. If the test can't demonstrate the problem, keep it as a question or unconfirmed risk, not a confirmed high-severity finding.
 
-Prefer regression tests that assert the desired security invariant: another account gets no data, a revoked grant dispatches no later request, an old worker changes no newer state. Such tests should fail on vulnerable code and pass after the fix. An exploratory exploit test asserting the vulnerability exists has the reverse polarity; do not mix up those meanings when reporting “tests fail.”
+Write regression tests that assert the desired security invariant: another account gets no data, a revoked grant sends no later request, an old worker changes no newer state. These tests fail on the unfixed code and pass after the fix. Don't write tests that assert the defect exists; they have the opposite meaning and make "tests fail" ambiguous in reports.
 
-For important fixes, demonstrate sensitivity by running the invariant against the pre-fix behavior or temporarily reverting the narrow fix in isolation. Assert that the test reaches the vulnerable boundary. A consent test that fails during setup has not proved inter-stage revocation.
+For important fixes, show test sensitivity by running the invariant against the pre-fix code or temporarily reverting the narrow fix in isolation. Assert that the test actually reaches the boundary being fixed. A consent test that fails during setup has not proved inter-stage revocation.
 
 ## Database and concurrency
 
@@ -43,9 +43,9 @@ For each actionable finding, include:
 | ID and title | Stable short identifier; concrete defect |
 | Severity/confidence | Preconditions, exposure and impact justify priority |
 | Location | Current file/line and affected entry points |
-| Trigger → impact | Reproducible behavior across the trust boundary |
+| Trigger → impact | Behavior across the trust boundary, as shown by the test |
 | Framework mapping | Category name and exact edition/ID |
-| Evidence | Reproducer/test and result on vulnerable behavior |
+| Evidence | Regression test and its result on the unfixed code |
 | Resolution | Minimal fix and shared callers addressed |
 | Verification | Final-revision test result and regression sensitivity |
 | Status | Fixed, confirmed open, needs operator action, unconfirmed, or not applicable |
@@ -68,4 +68,4 @@ Lead with important confirmed findings, changes and tests. Separate:
 
 Each readiness item needs evidence and a completion criterion, not just a checkbox. Email configured is different from delivered; deletion queued from erased; backup created from restored; secure defaults from live proxy/firewall verification.
 
-Do not rerun destructive cleanup or contact live providers just to close a report item. Deliver the concrete command/change plan when the task requires additional authorization; continue unrelated authorized work. A source review is not a penetration test or a guarantee that no vulnerabilities remain.
+Do not rerun destructive cleanup or contact live providers just to close a report item. Deliver the concrete command/change plan when the task requires additional authorization; continue unrelated authorized work. A source review is not a guarantee that no vulnerabilities remain.
