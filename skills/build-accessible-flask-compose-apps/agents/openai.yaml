@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessible Flask & Compose Apps"
+  short_description: "Set up apps and preserve accessible design decisions"
+  default_prompt: "Use $build-accessible-flask-compose-apps to set up this app and implement its accessible design."

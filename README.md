@@ -1,12 +1,14 @@
 # trylinux_skills
 
-Claude skills, starting with bar exam prep.
+Reusable skills for app development, model research, and bar exam prep.
 
 ## Skills
 
 | Skill | What it does |
 |---|---|
 | [`bar-essay-review`](skills/bar-essay-review/SKILL.md) | Grades practice MEE and MPT answers: builds a weighted rubric from an NCBE analysis or point sheet (or drafts one), scores each point, maps to a 1-6 band, and ranks fixes. Written for Sonnet. |
+| [`build-accessible-flask-compose-apps`](skills/build-accessible-flask-compose-apps/SKILL.md) | Reproduce the Skeinwise development environment and apply its web/Android design approach, zoom, color-vision palettes, OpenDyslexic, and documented decision rationale. |
+| [`research-model-task-fit`](skills/research-model-task-fit/SKILL.md) | Research and benchmark model fit for vision, sourced research, assembly, summaries, and document Q&A with quality, privacy, latency, and actual cost evidence. |
 
 ## Layout
 
