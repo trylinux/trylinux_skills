@@ -9,6 +9,8 @@ description: Secure code review and hardening of the user's own application (web
 
 This is defensive, source-level review of a codebase the user owns or maintains, run in their own checkout and test environment. The output is a findings report, code fixes and regression tests that prove the fixes hold. It does not include testing systems the user does not own, live traffic against production, or standalone proof-of-concept code. Every check below ends in a test that asserts the *safe* behavior.
 
+Any capable coding model can follow this skill. It calls for ordinary code reading, local tests and fixes; it does not require a specialized cybersecurity model or privileged security tooling. If a scanner, database, SDK or network source is unavailable, perform the source and local checks that are available, record the gap, and do not claim the missing check passed. Do not block the whole review because an optional tool is missing.
+
 ## References
 
 Load only the sections that match the application.
