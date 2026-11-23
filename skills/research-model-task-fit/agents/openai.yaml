@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Model Fit"
+  short_description: "Benchmark models by task, quality, privacy, and cost"
+  default_prompt: "Use $research-model-task-fit to evaluate models for my workflow and recommend a model for each role."

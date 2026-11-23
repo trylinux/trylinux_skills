@@ -1,0 +1,4 @@
+interface:
+  display_name: "Application Security Review"
+  short_description: "Review web, API, Android, and AI security with evidence"
+  default_prompt: "Use $review-app-security to review this project, verify prior fixes, and address confirmed security issues with regression tests."
