@@ -1,3 +1,6 @@
+<!-- wording-ok: historical record, intentionally not loaded by the skill -->
+> **Not part of the skill.** This provenance record was moved out of `skills/review-app-security/references/` so it isn't loaded into model context. It quotes historical prompts and security terminology verbatim, which can trip cyber-safety classifiers on refusal-prone models. Keep it here for audit only.
+
 # Recovered prompts and provenance
 
 ## Retrieval scope

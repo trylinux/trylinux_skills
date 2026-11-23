@@ -1,4 +1,4 @@
 interface:
-  display_name: "Application Security Review"
-  short_description: "Review web, API, Android, and AI security with evidence"
-  default_prompt: "Use $review-app-security to review this project, verify prior fixes, and address confirmed security issues with regression tests."
+  display_name: "Secure Code Review"
+  short_description: "Secure code review and fixes for your own app, with regression tests"
+  default_prompt: "Use $review-app-security to do a secure code review of this repository I own, verify earlier fixes still hold, and fix confirmed issues with regression tests."
